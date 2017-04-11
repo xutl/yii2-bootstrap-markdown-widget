@@ -6,6 +6,7 @@
  */
 namespace xutl\bootstrap\markdown;
 
+use Yii;
 use yii\web\AssetBundle;
 
 class MarkdownAsset extends AssetBundle
@@ -53,7 +54,7 @@ class MarkdownAsset extends AssetBundle
         if ($this->autoGenerate) {
             $language = $this->language;
             $fallbackLanguage = substr($this->language, 0, 2);
-            if ($fallbackLanguage !== $this->language && !file_exists(Yii::getAlias($this->sourcePath . "locale/bootstrap-markdown.{$language}.js"))) {
+            if ($fallbackLanguage !== $this->language && !file_exists(Yii::getAlias($this->sourcePath . "/locale/bootstrap-markdown.{$language}.js"))) {
                 $language = $fallbackLanguage;
             }
             $this->js[] = "locale/bootstrap-markdown.$language.js";
