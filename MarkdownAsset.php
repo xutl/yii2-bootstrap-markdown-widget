@@ -9,6 +9,10 @@ namespace xutl\bootstrap\markdown;
 use Yii;
 use yii\web\AssetBundle;
 
+/**
+ * Class MarkdownAsset
+ * @package xutl\bootstrap\markdown
+ */
 class MarkdownAsset extends AssetBundle
 {
     /**
