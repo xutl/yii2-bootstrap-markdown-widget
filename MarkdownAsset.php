@@ -4,40 +4,42 @@
  * @copyright Copyright (c) 2012 TintSoft Technology Co. Ltd.
  * @license http://www.tintsoft.com/license/
  */
-namespace xutl\bootstrap\markdown;
+namespace xutl\bootstrap\datetimepicker;
 
 use Yii;
 use yii\web\AssetBundle;
 
 /**
- * Class MarkdownAsset
- * @package xutl\bootstrap\markdown
+ * Class DatetimePickerAsset
+ * @package xutl\bootstrap\datetimepicker
  */
-class MarkdownAsset extends AssetBundle
+class DatetimePickerAsset extends AssetBundle
 {
     /**
      * @inherit
      */
-    public $sourcePath = '@vendor/xutl/yii2-bootstrap-markdown-widget/assets';
+    public $sourcePath = '@vendor/xutl/yii2-bootstrap-datetimepicker-widget/assets';
 
-	/**
+    /**
      * @inherit
      */
     public $css = [
-        'css/bootstrap-markdown.min.css',
+        'css/bootstrap-datetimepicker.min.css',
     ];
 
     /**
      * @inherit
      */
     public $js = [
-        'js/bootstrap-markdown.js',
+        'js/bootstrap-datetimepicker.min.js',
     ];
 
-	/**
+    public $depends = [
+        'yii\bootstrap\BootstrapPluginAsset',
+    ];
+
+    /**
      * @var boolean whether to automatically generate the needed language js files.
-     * If this is true, the language js files will be determined based on the actual usage of [[DatePicker]]
-     * and its language settings. If this is false, you should explicitly specify the language js files via [[js]].
      */
     public $autoGenerate = true;
 
@@ -46,11 +48,7 @@ class MarkdownAsset extends AssetBundle
      */
     public $language;
 
-    public $depends = [
-        'yii\bootstrap\BootstrapPluginAsset',
-    ];
-
-	/**
+    /**
      * @inheritdoc
      */
     public function registerAssetFiles($view)
@@ -58,10 +56,10 @@ class MarkdownAsset extends AssetBundle
         if ($this->autoGenerate) {
             $language = $this->language;
             $fallbackLanguage = substr($this->language, 0, 2);
-            if ($fallbackLanguage !== $this->language && !file_exists(Yii::getAlias($this->sourcePath . "/locale/bootstrap-markdown.{$language}.js"))) {
+            if ($fallbackLanguage !== $this->language && !file_exists(Yii::getAlias($this->sourcePath . "/js/locales/bootstrap-datetimepicker.{$language}.js"))) {
                 $language = $fallbackLanguage;
             }
-            $this->js[] = "locale/bootstrap-markdown.$language.js";
+            $this->js[] = "js/locales/bootstrap-datetimepicker.$language.js";
         }
         parent::registerAssetFiles($view);
     }
