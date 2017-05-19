@@ -4,16 +4,16 @@
  * @copyright Copyright (c) 2012 TintSoft Technology Co. Ltd.
  * @license http://www.tintsoft.com/license/
  */
-namespace xutl\bootstrap\datetimepicker;
+namespace xutl\bootstrap\markdown;
 
 use Yii;
 use yii\web\AssetBundle;
 
 /**
- * Class DatetimePickerAsset
- * @package xutl\bootstrap\datetimepicker
+ * Class MarkdownAsset
+ * @package xutl\bootstrap\markdown
  */
-class DatetimePickerAsset extends AssetBundle
+class MarkdownAsset extends AssetBundle
 {
     /**
      * @inherit
